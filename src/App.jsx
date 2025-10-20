@@ -3,7 +3,7 @@ import {Scanner} from "@yudiel/react-qr-scanner";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import './App.css'
-const serverEndPoint = 'http://localhost:5000/api/content/mol_reg'
+const serverEndPoint = 'https://api.logixdz.com/api/content/mol_reg'
 
 function App() {
  const [lastScanned, setLastScanned] = useState("");
@@ -22,7 +22,7 @@ function App() {
       toast.success("Saved to database!");
     } catch (err) {
       console.log(err)
-      toast.error("Failed to save data");
+      toast.error("Failed to save data", err);
     }
   };
 

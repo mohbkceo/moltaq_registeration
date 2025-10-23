@@ -13,6 +13,12 @@ function App() {
     console.log(result)
     const qrText = result[0].rawValue.trim();
     if (qrText === lastScanned) return;
+
+
+    if(!qrText.includes('@')){
+      toast.error('invalid type detected!');
+      return;
+    }
     setLastScanned(qrText);
     
     toast.success(`Qr coded reader success data: ${qrText}`);
